@@ -1,0 +1,11 @@
+# Tool Name :- Location-Tracer
+# Author :-Mullern
+# Date :- 2/4/2024
+# Powered By :-  Mullern_Tech
+if [ -d /data/data/com.termux/files/usr/share ];then
+  cd /data/data/com.termux/files/usr/share/location-tracer
+  exec bash trace $@
+elif [ -d /usr/share ];then
+  cd /usr/share/location-tracer
+  exec bash trace $@
+fi

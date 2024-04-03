@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# Tool Name :- Location-Tracer
+# Author :- Mullern
+# Date :- 2/4/2024
+
+case "$1" in
+  -m)
+    php modules/.tracem.php
+  ;;
+  -t)
+    case "$#" in
+    2)
+      php modules/.traceip.php $2
+    ;;
+    *)
+      echo "error : invalid arguments !!"
+      echo "use: Location-tracer -t <target_ip>"
+    ;;
+    esac
+  ;;
+  -u)
+    php modules/.update.php
+    exit
+  ;;
+  update)
+    php modules/.update.php
+    exit
+  ;;
+  start)
+    php .IP-Tracer.php
+    exit
+  ;;
+  -rm)
+    php modules/.uninstall.php
+    exit
+  ;;
+  *)
+    echo "Usage: Location-tracer [command]... [arguments]..."
+    echo " Commands:"
+    echo " -t <target_ip>      to trace target location && IP."
+    echo " -m                  to trace your own location && IP."
+    echo " -h                  to show help."
+    echo " -u                  to update location-tracer."
+    echo " help                to show help."
+    echo " update              to update location-tracer."
+    echo " start               to start location-tracer menu."
+esac
